@@ -1,2 +1,16 @@
-# Sistema-de-tarefas-Console-
-Nesse repositório contem um sistema simples em C#, que por sua vez usa lista linear estática.
+# Sistema de Tarefas - Console C#
+
+Projeto desenvolvido para praticar conceitos de:
+
+- Programação Orientada a Objetos
+- Estrutura de dados
+- Organização de código em C#
+
+Funcionalidades:
+- Adicionar tarefa
+- Remover tarefa
+- Listar tarefas
+
+Tecnologias utilizadas:
+- C#
+- .NET
