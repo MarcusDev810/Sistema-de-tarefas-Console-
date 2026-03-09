@@ -13,7 +13,6 @@ public class ListaEstatica{
 
     public int Tamanho(){
         return Tam;
-
     }
     
     public void Adicionar_Inicio(string nome, string descricao, int importancia){
@@ -111,5 +110,18 @@ public class ListaEstatica{
             Console.WriteLine($"Nível de importância: {tarefa[i].Importancia}");
             Console.WriteLine("=========================================================================");
         }
+    }
+
+    public int Buscar_Nome(string nome){
+
+        for( int i = 0; i < Tam; i++){
+            if(tarefa[i].Nome == nome){
+                return i;
+            }
+        }
+
+        Console.WriteLine("Nome de tarefa não encontrado");
+        return -1;
+        
     }
 }
