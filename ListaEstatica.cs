@@ -1,21 +1,25 @@
-public class ListaEstatica{
+//Criação da Lista estática
+public class ListaEstatica{ 
 
         private int Tam = 0;
         private int Tam_Max;
         private Tarefas[] tarefa;
 
-    public ListaEstatica(){
+    public ListaEstatica(){     
+        //Construtor da classe
 
         this.Tam = 0;
         this.Tam_Max = 1000;
         this.tarefa = new Tarefas[Tam_Max];
     }
 
-    public int Tamanho(){
+    public int Tamanho(){       
+    //Função que retorna o tamanho da lista
         return Tam;
     }
     
-    public void Adicionar_Inicio(string nome, string descricao, int importancia){
+    public void Adicionar_Inicio(string nome, string descricao, int importancia){       
+    //Função que adiciona uma tarefa ao inicío da lista
         if(Tam == Tam_Max){
             return;
         }
@@ -29,6 +33,7 @@ public class ListaEstatica{
     }
 
     public void Adicionar_Pos(int pos, string nome, string descricao, int importancia){
+    //Função que adiciona uma tarefa na posição indicada
         if(pos < 0 || pos > Tam){
             return;
         }
@@ -46,6 +51,7 @@ public class ListaEstatica{
     }
 
     public void Adicionar_Final(string nome, string descricao, int importancia){
+    //Função que adiciona uma tarefa na posição final da lista
         if(Tam == Tam_Max){
             return;
         }
@@ -55,6 +61,7 @@ public class ListaEstatica{
     }
 
     public Tarefas Remover_Inicio(){
+    //Função que remove e retorna a primeira tarefa da lista
         if(Tam == 0){
             return null!;
         }
@@ -70,6 +77,7 @@ public class ListaEstatica{
     }
 
     public Tarefas Remover_Pos(int pos){
+    //Função que remove e retorna a tarefa na posição indicada
         if(pos < 0 ||pos >= Tam){
             return null!;
         }
@@ -84,6 +92,7 @@ public class ListaEstatica{
     }
 
     public Tarefas Remover_Final(){
+    //Função que remove e retorta a ultima tarefa
         if(Tam == 0){
             return null!;
         }
@@ -95,6 +104,7 @@ public class ListaEstatica{
     }
 
     public void Imprimir(){
+    //Função que imprime a lista de tarefas
         if(Tam == 0){
             Console.WriteLine("=========================================================================");
             Console.WriteLine("Lista de Tarefas Vazia");
@@ -102,8 +112,8 @@ public class ListaEstatica{
             return;
         }
 
+        Console.WriteLine("=========================================================================");
         for(int i = 0; i < Tam; i++){
-            Console.WriteLine("=========================================================================");
             Console.WriteLine($"ID da Tarefa: {i}");
             Console.WriteLine($"Nome da Tarefa: {tarefa[i].Nome}");
             Console.WriteLine($"Descrição da tarefa: {tarefa[i].Descricao}");
@@ -113,6 +123,7 @@ public class ListaEstatica{
     }
 
     public int Buscar_Nome(string nome){
+    //Função que busca e retorna a posição da primeira tarefa com o nome indicado
 
         for( int i = 0; i < Tam; i++){
             if(tarefa[i].Nome.ToUpper() == nome.ToUpper()){
@@ -125,6 +136,7 @@ public class ListaEstatica{
         
     }
     public int[] Buscar_Importancia(int impor){
+    //Função busca e retorna todas as tarefas da importância informada
 
         int[] temp = new int[Tam];
         int index = 0;
