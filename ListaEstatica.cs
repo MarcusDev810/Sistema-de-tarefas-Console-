@@ -115,13 +115,32 @@ public class ListaEstatica{
     public int Buscar_Nome(string nome){
 
         for( int i = 0; i < Tam; i++){
-            if(tarefa[i].Nome == nome){
+            if(tarefa[i].Nome.ToUpper() == nome.ToUpper()){
                 return i;
             }
         }
 
         Console.WriteLine("Nome de tarefa não encontrado");
-        return -1;
+        return -1;  
         
+    }
+    public int[] Buscar_Importancia(int impor){
+
+        int[] temp = new int[Tam];
+        int index = 0;
+
+        for( int i = 0; i < Tam; i++){
+            if(tarefa[i].Importancia == impor){
+                temp[index++] = i;
+            }
+        }
+
+        int[] saida = new int[index];
+
+        for(int i = 0; i < index; i++){
+            saida[i] = temp[i];
+        }
+
+        return saida;
     }
 }
