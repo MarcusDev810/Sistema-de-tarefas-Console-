@@ -22,12 +22,12 @@ class Program{
         Console.WriteLine("0 - Sair");
         Console.WriteLine("Digite a opção desejada:");
 
-        int res = int.Parse(Console.ReadLine()!);
+        string? input = Console.ReadLine();
 
-        if(res < 0 || res > 6){
+        if(!int.TryParse(input, out int res) || res < 0 || res > 6){
             Console.Clear();
             Console.WriteLine("Opção invalida, tente novamente:");
-            Thread.Sleep(2000);
+            Thread.Sleep(2500);
             Console.Clear();
             res = Menu();
         }
