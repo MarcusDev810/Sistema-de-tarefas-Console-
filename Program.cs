@@ -6,8 +6,6 @@ class Program{
         ListaEstatica lista = new ListaEstatica();
         int opcao = 0;
 
-
-
         opcao = Menu();
 
         
@@ -24,5 +22,16 @@ class Program{
         Console.WriteLine("0 - Sair");
         Console.WriteLine("Digite a opção desejada:");
 
+        int res = int.Parse(Console.ReadLine()!);
+
+        if(res < 0 || res > 6){
+            Console.Clear();
+            Console.WriteLine("Opção invalida, tente novamente:");
+            Thread.Sleep(2000);
+            Console.Clear();
+            res = Menu();
+        }
+        return res;
+        
     }
 }
