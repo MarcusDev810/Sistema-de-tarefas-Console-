@@ -105,6 +105,7 @@ public class ListaEstatica{
 
     public void Imprimir(){
     //Função que imprime a lista de tarefas
+        Console.Clear();
         if(Tam == 0){
             Console.WriteLine("=========================================================================");
             Console.WriteLine("Lista de Tarefas Vazia");
