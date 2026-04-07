@@ -13,7 +13,7 @@ class Program{
 
             switch (opcao){
                 case 1: lista.Imprimir();
-                        Thread.Sleep(5000);
+                        Thread.Sleep(6000);
                 break;
 
                 case 2: Adicionar(lista);
@@ -97,6 +97,27 @@ class Program{
             }
 
             lista.Adicionar_Inicio(nome, descricao, importancia);
+
+        }
+
+        if(input == "2"){
+            Console.Clear();
+            Console.WriteLine("===== ADICIONAR FINAL =====");
+            Console.WriteLine("Qual o nome da tarefa?:");
+            nome = Console.ReadLine();
+
+            Console.WriteLine("Qual a descrição do projeto?:");
+            descricao = Console.ReadLine();
+
+            Console.WriteLine("Qual o nível de importância de 1 a 5?:");
+            importancia = int.Parse(Console.ReadLine());
+
+            if(importancia < 1 || importancia > 5){
+                Console.WriteLine("Nível de importância invalida.");
+                return;
+            }
+
+            lista.Adicionar_Final(nome, descricao, importancia);
 
         }
     }
