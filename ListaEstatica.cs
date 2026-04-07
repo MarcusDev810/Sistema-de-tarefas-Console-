@@ -119,6 +119,7 @@ public class ListaEstatica{
             Console.WriteLine($"Nome da Tarefa: {tarefa[i].Nome}");
             Console.WriteLine($"Descrição da tarefa: {tarefa[i].Descricao}");
             Console.WriteLine($"Nível de importância: {tarefa[i].Importancia}");
+            Console.WriteLine($"Concluida?: {tarefa[i].Concluido}");
             Console.WriteLine("=========================================================================");
         }
     }
@@ -155,5 +156,9 @@ public class ListaEstatica{
         }
 
         return saida;
+    }
+
+    public void Concluir(int loc){
+        tarefa[loc].Tarefa_Concluida();
     }
 }

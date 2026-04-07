@@ -12,20 +12,23 @@ class Program{
             opcao = Menu();
 
             switch (opcao){
-                case 1: lista.Imprimir();
-                        Thread.Sleep(6000);
+                case 1: 
+                    lista.Imprimir();
+                    Thread.Sleep(6000);
                 break;
 
-                case 2: Adicionar(lista);
+                case 2: 
+                    Adicionar(lista);
                 break;
 
-          /*      case 3: Concluir();
+                case 3: 
+                    Concluir(lista);
+                break;
+/*
+                case 4: Remover(lista);
                 break;
 
-                case 4: Remover();
-                break;
-
-                case 5: Buscar();
+                case 5: Buscar(lista);
                 break;   */
                 
             }
@@ -59,6 +62,7 @@ class Program{
     }
 
     static void Adicionar(ListaEstatica lista){
+
         Console.Clear();
         Console.WriteLine("Você deseja adicionar uma tarefa em qual posição?");
         Console.WriteLine("1 - Início");
@@ -95,6 +99,7 @@ class Program{
 
             if(importancia < 1 || importancia > 5){
                 Console.WriteLine("Nível de importância invalida.");
+                Thread.Sleep(2000);
                 return;
             }
 
@@ -117,6 +122,7 @@ class Program{
 
             if(importancia < 1 || importancia > 5){
                 Console.WriteLine("Nível de importância invalida.");
+                Thread.Sleep(2000);
                 return;
             }
 
@@ -142,11 +148,39 @@ class Program{
 
             if(importancia < 1 || importancia > 5){
                 Console.WriteLine("Nível de importância invalida.");
+                Thread.Sleep(2000);
                 return;
             }
 
             lista.Adicionar_Pos(local - 1, nome, descricao, importancia);   //Local com um "-1" pois na visão do usuário uma lista não começa com 0, mas sim com 1!
 
         }
+
+    }
+
+    static void Concluir(ListaEstatica lista){
+
+        Console.WriteLine("Qual o ID da terefa que deseja concluir?");
+        int con = int.Parse(Console.ReadLine());
+
+        //Somente um loading visual para testes
+        Console.Clear();
+        Console.Write(". ");
+        Thread.Sleep(500);
+        Console.Write(". ");
+        Thread.Sleep(500);
+        Console.Write(". ");
+        Thread.Sleep(500);
+        Console.Write(". ");
+        Thread.Sleep(500);
+        Console.Clear();
+
+        Console.WriteLine("Tarefa concluída!!");
+
+        lista.Concluir(con);
+        Thread.Sleep(2000);
+    }
+    static void Remover(){
+            
     }
 }

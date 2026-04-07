@@ -12,7 +12,7 @@ public class Tarefas{
         this.Concluido = false;
     }
 
-    public void Tarefas_Concluida(){
+    public void Tarefa_Concluida(){
         Concluido = true;
     }
 
