@@ -68,7 +68,8 @@ class Program{
 
         string? input = Console.ReadLine();
 
-        if(!int.TryParse(input, out int res) || res < 0 || res > 3){
+        //Verificação de entrada de dados
+        if(!int.TryParse(input, out int res) || res < 0 || res > 3){    //Se a string não virar int, for menor que 0 ou maior que 3, ele dá erro e volta para função.
             Console.Clear();
             Console.WriteLine("Opção invalida, tente novamente:");
             Thread.Sleep(2500);
@@ -79,6 +80,7 @@ class Program{
         string nome = "", descricao = "";
         int importancia = 0;
 
+        //Função para adicionar no início
         if(input == "1"){
             Console.Clear();
             Console.WriteLine("===== ADICIONAR INÍCIO =====");
@@ -100,6 +102,7 @@ class Program{
 
         }
 
+        //Função para adicionar no final
         if(input == "2"){
             Console.Clear();
             Console.WriteLine("===== ADICIONAR FINAL =====");
@@ -121,6 +124,7 @@ class Program{
 
         }
         
+        //Função para adicionar na posição desejada
         if(input == "3"){
             Console.Clear();
             Console.WriteLine("===== ADICIONAR LOCAL ESPECÍFICO =====");
@@ -141,7 +145,7 @@ class Program{
                 return;
             }
 
-            lista.Adicionar_Pos(local - 1, nome, descricao, importancia);
+            lista.Adicionar_Pos(local - 1, nome, descricao, importancia);   //Local com um "-1" pois na visão do usuário uma lista não começa com 0, mas sim com 1!
 
         }
     }
