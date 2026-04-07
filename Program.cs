@@ -24,11 +24,13 @@ class Program{
                 case 3: 
                     Concluir(lista);
                 break;
-/*
-                case 4: Remover(lista);
-                break;
 
-                case 5: Buscar(lista);
+                case 4: 
+                    Remover(lista);
+                break;
+/*
+                case 5: 
+                    Buscar(lista);
                 break;   */
                 
             }
@@ -180,7 +182,50 @@ class Program{
         lista.Concluir(con);
         Thread.Sleep(2000);
     }
-    static void Remover(){
+    static void Remover(ListaEstatica lista){
             
+        Console.Clear();
+        Console.WriteLine("Você deseja remover a tarefa em qual posição?");
+        Console.WriteLine("1 - Início");
+        Console.WriteLine("2 - Fim");
+        Console.WriteLine("3 - Local expecífico");
+        Console.WriteLine("Digite a opção desejada:");
+
+        string? input = Console.ReadLine();
+
+        //Verificação de entrada de dados
+        if(!int.TryParse(input, out int res) || res < 0 || res > 3){    //Se a string não virar int, for menor que 0 ou maior que 3, ele dá erro e volta para função.
+            Console.Clear();
+            Console.WriteLine("Opção invalida, tente novamente:");
+            Thread.Sleep(2500);
+            Console.Clear();
+            Adicionar(lista);
+        }
+
+        string nome = "", descricao = "";
+        int importancia = 0;
+
+        if(input == "1"){
+            Console.WriteLine("Removendo a tarefa da primeira posição");
+            Thread.Sleep(2000);
+
+            //Somente um loading visual para testes
+            Console.Clear();
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Clear();
+            Console.WriteLine("Tarefa removida!!");
+            Thread.Sleep(2000);
+
+            lista.Remover_Inicio();
+            
+        }
+
     }
 }
