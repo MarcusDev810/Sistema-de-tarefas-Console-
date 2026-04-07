@@ -120,5 +120,29 @@ class Program{
             lista.Adicionar_Final(nome, descricao, importancia);
 
         }
+        
+        if(input == "3"){
+            Console.Clear();
+            Console.WriteLine("===== ADICIONAR LOCAL ESPECÍFICO =====");
+            Console.WriteLine("Qual o nome da tarefa?:");
+            nome = Console.ReadLine();
+
+            Console.WriteLine("Qual a descrição do projeto?:");
+            descricao = Console.ReadLine();
+
+            Console.WriteLine("Qual o nível de importância de 1 a 5?:");
+            importancia = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Qual a posição que deseja inserir a tarefa?");
+            int local = int.Parse(Console.ReadLine());
+
+            if(importancia < 1 || importancia > 5){
+                Console.WriteLine("Nível de importância invalida.");
+                return;
+            }
+
+            lista.Adicionar_Pos(local - 1, nome, descricao, importancia);
+
+        }
     }
 }
