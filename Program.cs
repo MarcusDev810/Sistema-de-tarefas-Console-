@@ -1,4 +1,6 @@
-﻿namespace Sistema_de_tarefas_Console_;
+﻿using System.Security.AccessControl;
+
+namespace Sistema_de_tarefas_Console_;
 
 class Program{
     static void Main(){
@@ -28,10 +30,10 @@ class Program{
                 case 4: 
                     Remover(lista);
                 break;
-/*
+
                 case 5: 
                     Buscar(lista);
-                break;   */
+                break;   
                 
             }
 
@@ -42,6 +44,8 @@ class Program{
     }
 
     static int Menu(){
+        Console.Clear();
+
         Console.WriteLine("====> ESTOQUE FÁCIL <====");
         Console.WriteLine("1 - Listar suas tarefas");
         Console.WriteLine("2 - Adiciona uma tarefa");
@@ -161,6 +165,7 @@ class Program{
     }
 
     static void Concluir(ListaEstatica lista){
+        Console.Clear();
 
         Console.WriteLine("Qual o ID da terefa que deseja concluir?");
         int con = int.Parse(Console.ReadLine());
@@ -250,6 +255,14 @@ class Program{
             Console.WriteLine("Qual a posição da tarefa que deseja remover?");
             int pos = int.Parse(Console.ReadLine());
 
+            //Verifica se a entrada é valida
+            if(pos < 0 || pos > lista.Tamanho()){
+                Console.Clear();
+                Console.WriteLine("Localização inválida");
+                Thread.Sleep(2000);
+                Remover(lista);
+            }
+
             Console.WriteLine("Removendo a tarefa da posição indicada");
             Thread.Sleep(2000);
 
@@ -269,6 +282,49 @@ class Program{
 
             lista.Remover_Pos(pos - 1);
             
+        }
+
+    }
+    static void Buscar(ListaEstatica lista){
+                    
+        Console.Clear();
+        Console.WriteLine("Você deseja fazer qual tipo de busca?");
+        Console.WriteLine("1 - Por nome (retorna a primeira tarefa com o nome indicado)");
+        Console.WriteLine("2 - Por importância (todos da mesma importância)");
+        Console.WriteLine("Digite a opção desejada:");
+
+        string? input = Console.ReadLine();
+
+        //Verificação de entrada de dados
+        if(!int.TryParse(input, out int res) || res < 0 || res > 2){    //Se a string não virar int, for menor que 0 ou maior que 3, ele dá erro e volta para função.
+            Console.Clear();
+            Console.WriteLine("Opção invalida, tente novamente:");
+            Thread.Sleep(2500);
+            Console.Clear();
+            Buscar(lista);
+        }
+
+        if(input == "1"){
+            Console.Clear();
+
+            Console.WriteLine("Qual o nome da tarefa que você deseja pesquisar?");
+            string nome = Console.ReadLine();
+
+            Console.WriteLine($"Buscando tarefa de nome {nome}");
+            Thread.Sleep(2000);
+
+            //Somente um loading visual para testes
+            Console.Clear();
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Clear();
+            lista.Buscar_Nome(nome);
         }
     }
 }

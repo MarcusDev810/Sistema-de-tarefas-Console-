@@ -124,17 +124,27 @@ public class ListaEstatica{
         }
     }
 
-    public int Buscar_Nome(string nome){
+    public void Buscar_Nome(string nome){
     //Função que busca e retorna a posição da primeira tarefa com o nome indicado
 
         for( int i = 0; i < Tam; i++){
             if(tarefa[i].Nome.ToUpper() == nome.ToUpper()){
-                return i;
+
+                Console.Clear();
+                Console.WriteLine("=========================================================================");
+                Console.WriteLine($"ID da Tarefa: {i}");
+                Console.WriteLine($"Nome da Tarefa: {tarefa[i].Nome}");
+                Console.WriteLine($"Descrição da tarefa: {tarefa[i].Descricao}");
+                Console.WriteLine($"Nível de importância: {tarefa[i].Importancia}");
+                Console.WriteLine($"Concluida?: {tarefa[i].Concluido}");
+                Console.WriteLine("=========================================================================");
+                Thread.Sleep(5000);
+                return ;
             }
         }
 
         Console.WriteLine("Nome de tarefa não encontrado");
-        return -1;  
+        return ;  
         
     }
     public int[] Buscar_Importancia(int impor){
