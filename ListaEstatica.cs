@@ -78,6 +78,7 @@ public class ListaEstatica{
 
     public Tarefas Remover_Pos(int pos){
     //Função que remove e retorna a tarefa na posição indicada
+        Console.WriteLine("ok");
         if(pos < 0 ||pos >= Tam){
             return null!;
         }
