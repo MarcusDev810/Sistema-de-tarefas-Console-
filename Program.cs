@@ -249,5 +249,29 @@ class Program{
             
         }
 
+        if(input == "3"){
+            Console.WriteLine("Qual a posição da tarefa que deseja remover?");
+            int pos = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Removendo a tarefa da posição indicada");
+            Thread.Sleep(2000);
+
+            //Somente um loading visual para testes
+            Console.Clear();
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Clear();
+            Console.WriteLine("Tarefa removida!!");
+            Thread.Sleep(2000);
+
+            lista.Remover_Pos(pos - 1);
+            
+        }
     }
 }
