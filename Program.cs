@@ -199,11 +199,8 @@ class Program{
             Console.WriteLine("Opção invalida, tente novamente:");
             Thread.Sleep(2500);
             Console.Clear();
-            Adicionar(lista);
+            Remover(lista);
         }
-
-        string nome = "", descricao = "";
-        int importancia = 0;
 
         if(input == "1"){
             Console.WriteLine("Removendo a tarefa da primeira posição");
