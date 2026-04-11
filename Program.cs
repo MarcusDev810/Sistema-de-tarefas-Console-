@@ -51,7 +51,7 @@ class Program{
         Console.WriteLine("2 - Adiciona uma tarefa");
         Console.WriteLine("3 - Concluir uma tarefa");
         Console.WriteLine("4 - Remover uma tarefa");
-        Console.WriteLine("5 - Buscar tarefa por nome");
+        Console.WriteLine("5 - Buscar tarefa");
         Console.WriteLine("0 - Sair");
         Console.WriteLine("Digite a opção desejada:");
 
@@ -325,6 +325,36 @@ class Program{
             Thread.Sleep(500);
             Console.Clear();
             lista.Buscar_Nome(nome);
+        }
+
+        if(input == "2"){
+            Console.Clear();
+
+            Console.WriteLine("Qual a importância das tarefas que você deseja pesquisar?");
+            int importancia = int.Parse(Console.ReadLine());
+
+            if(importancia < 0 || importancia > 5){
+                Console.Clear();
+
+                Console.WriteLine("Nível de importância inexistente!");
+                Buscar(lista);
+            }
+
+            Console.WriteLine($"Buscando tarefas por importância {importancia}");
+            Thread.Sleep(2000);
+
+            //Somente um loading visual para testes
+            Console.Clear();
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Write(". ");
+            Thread.Sleep(500);
+            Console.Clear();
+            lista.Buscar_Importancia(importancia);
         }
     }
 }

@@ -147,25 +147,25 @@ public class ListaEstatica{
         return ;  
         
     }
-    public int[] Buscar_Importancia(int impor){
+    public void Buscar_Importancia(int impor){ 
     //Função busca e retorna todas as tarefas da importância informada
 
-        int[] temp = new int[Tam];
-        int index = 0;
-
+        Console.Clear();
         for( int i = 0; i < Tam; i++){
             if(tarefa[i].Importancia == impor){
-                temp[index++] = i;
+                
+                Console.WriteLine("=========================================================================");
+                Console.WriteLine($"ID da Tarefa: {i}");
+                Console.WriteLine($"Nome da Tarefa: {tarefa[i].Nome}");
+                Console.WriteLine($"Descrição da tarefa: {tarefa[i].Descricao}");
+                Console.WriteLine($"Nível de importância: {tarefa[i].Importancia}");
+                Console.WriteLine($"Concluida?: {tarefa[i].Concluido}");
+                Console.WriteLine("=========================================================================");
             }
         }
+        Thread.Sleep(5000);
 
-        int[] saida = new int[index];
-
-        for(int i = 0; i < index; i++){
-            saida[i] = temp[i];
-        }
-
-        return saida;
+        return;
     }
 
     public void Concluir(int loc){
